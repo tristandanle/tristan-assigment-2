@@ -9,7 +9,7 @@ public class Assigment2Application {
 		
 		// and collect user input
 		
-		//etc. 
+		//to be continued
 
 	}
 
