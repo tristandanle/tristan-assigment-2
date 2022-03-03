@@ -5,14 +5,14 @@ import java.util.concurrent.ThreadLocalRandom;
 
 //Class GuessingGameApps
 public class GuessingGameApps {
+	// Constants
+	static final int Min = 1;
+	static final int Max = 101;
+	static final int MAX_TRY = 5;
 
 	// Main method
 	public static void main(String[] args) {
-
-		// Constants
-		int Min = 1;
-		int Max = 101;
-		int MAX_TRY = 5;
+		
 		//Variables
 		int numberInput;
 		int numberGuess;
