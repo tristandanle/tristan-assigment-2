@@ -10,10 +10,8 @@ public class GuessingGameApps {
 	static final int Max = 101;
 	static final int MAX_TRY = 5;
 
-	// Main method
 	public static void main(String[] args) {
-		
-		//Variables
+
 		int numberInput;
 		int numberGuess;
 		int theRandomNumber;
@@ -23,36 +21,35 @@ public class GuessingGameApps {
 		numberGuess = validateNumber(numberInput);
 
 		// Loop through five tries
-		for (int i = 1; i < MAX_TRY; i++) {
-			if (theRandomNumber == numberGuess) {
-				System.out.println("You win!");
-				break;
-			}
-			displayLowHighMessage(theRandomNumber, numberGuess);
+		for (int i = 1; i <= MAX_TRY; i++) {
+			displayLowHighMessage(theRandomNumber, numberGuess, i);
 			numberInput = userInput();
 			numberGuess = validateNumber(numberInput);
-			if (i == MAX_TRY - 1) {
-				System.out.println("You lose!");
-			}
 		}
 		System.out.println("The number to guess was: " + numberGuess);
 
 	} // end main
-	
-	
-    /**************************************************************************/
-    /****************************** Declare methods****************************/
-    /**************************************************************************/
-   
+
+	/**************************************************************************/
+	/****************************** Declare methods ****************************/
+	/**************************************************************************/
+
 	// displayMesage method
-	private static void displayLowHighMessage(int randomNumber, int number) {
-		if (number < randomNumber) {
-			System.out.println("Please pick a higher number");
-		} else if (number > randomNumber) {
-			System.out.println("Please pick a lower number");
-		} else {
-			System.out.println("You win");
+	private static void displayLowHighMessage(int randomNumber, int numberGuess, int number) {
+		if ((number == MAX_TRY) && !(numberGuess == randomNumber)) {
+			System.out.println("You lose");
+			System.exit(0);
+		} else if (number <= MAX_TRY) {
+			if (numberGuess == randomNumber) {
+				System.out.println("You win");
+				System.exit(0);
+			} else if (numberGuess < randomNumber) {
+				System.out.println("Please pick a higher number");
+			} else if (numberGuess > randomNumber) {
+				System.out.println("Please pick a lower number");
+			}
 		}
+
 	}
 
 	// validateNumber method
@@ -71,9 +68,6 @@ public class GuessingGameApps {
 
 	// generateRandomNumber method
 	private static int generateRandomNumber(int min, int max) {
-		// Random random = new Random();
-		// System.out.println("random number in:" + random.nextInt(max));
-		// int randomInt = ThreadLocalRandom.current().nextInt(1, 51);
 		return ThreadLocalRandom.current().nextInt(min, max);
 	}
 
