@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
 //Class GuessingGameApps
-public class GuessingGameApps_v2 {
+public class GuessingGameApps {
 	// Constants
 	static final int Min = 1;
 	static final int Max = 101;
@@ -37,27 +37,44 @@ public class GuessingGameApps_v2 {
 	// displayMesage method
 	private static void displayLowHighMessage(int randomNumber, int numberGuess, int number) {
 		if ((number == MAX_TRY) && !(numberGuess == randomNumber)) {
+			System.out.println(" ");
 			System.out.println("You lose!");
 			System.out.println(" ");
-			System.out.println("The number to guess was: " + numberGuess);
-			System.exit(0);
-			
+			if (numberGuess < randomNumber) {
+				pickHighNumber();
+			} else if (numberGuess > randomNumber) {
+				pickLowNumber();
+			}
+			//System.out.println(" ");
+			System.out.println("The number to guess was: " + randomNumber);
 			System.exit(0);
 		} else if (number <= MAX_TRY) {
 			if (numberGuess == randomNumber) {
+				System.out.println(" ");
 				System.out.println("You win!");
 				System.out.println(" ");
-				System.out.println("The number to guess was: " + numberGuess);
+				System.out.println("The number to guess was: " + randomNumber);
+				System.out.println(" ");
 				System.exit(0);
 			} else if (numberGuess < randomNumber) {
-				System.out.println("Please pick a higher number");
 				System.out.println(" ");
+				pickHighNumber();
 			} else if (numberGuess > randomNumber) {
-				System.out.println("Please pick a lower number");
 				System.out.println(" ");
+				pickLowNumber();
 			}
 		}
 
+	}
+
+	public static void pickLowNumber() {
+		System.out.println("Please pick a lower number");
+		System.out.println(" ");
+	}
+
+	public static void pickHighNumber() {
+		System.out.println("Please pick a higher number");
+		System.out.println(" ");
 	}
 
 	// validateNumber method
@@ -81,7 +98,7 @@ public class GuessingGameApps_v2 {
 
 	// userInput method
 	private static int userInput() {
-		System.out.println("Pick a number between 1 and 100: ");
+		System.out.print("Pick a number between 1 and 100: ");
 		Scanner scanner = new Scanner(System.in);
 		int number = Integer.parseInt(scanner.nextLine());
 		return number;
