@@ -17,14 +17,20 @@ public class GuessingGameApps {
 		int theRandomNumber;
 
 		theRandomNumber = generateRandomNumber(Min, Max);
+		System.out.println("");	
 		numberInput = userInput();
+		//System.out.println("");
 		numberGuess = validateNumber(numberInput);
+		//System.out.println("");
 
 		// Loop through five tries
 		for (int i = 1; i <= MAX_TRY; i++) {
 			displayLowHighMessage(theRandomNumber, numberGuess, i);
+			//System.out.println("");
 			numberInput = userInput();
+			//System.out.println("");
 			numberGuess = validateNumber(numberInput);
+			//System.out.println("");		
 		}
 		
 
@@ -68,11 +74,13 @@ public class GuessingGameApps {
 	}
 
 	public static void pickLowNumber() {
+		//System.out.println(" ");
 		System.out.println("Please pick a lower number");
 		System.out.println(" ");
 	}
 
 	public static void pickHighNumber() {
+		//System.out.println(" ");
 		System.out.println("Please pick a higher number");
 		System.out.println(" ");
 	}
@@ -84,7 +92,9 @@ public class GuessingGameApps {
 			if (number > 0 && number <= 100) {
 				answer = false;
 			} else {
+				System.out.println("");
 				System.out.println("Your guess is not between 1 and " + "100, please try again");
+				System.out.println("");
 				number = userInput();
 			}
 		}
@@ -98,6 +108,7 @@ public class GuessingGameApps {
 
 	// userInput method
 	private static int userInput() {
+		//System.out.println("");
 		System.out.print("Pick a number between 1 and 100: ");
 		Scanner scanner = new Scanner(System.in);
 		int number = Integer.parseInt(scanner.nextLine());
