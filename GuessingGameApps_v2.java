@@ -42,15 +42,18 @@ public class GuessingGameApps {
 
 	// displayMesage method
 	private static void displayLowHighMessage(int randomNumber, int numberGuess, int number) {
+		//System.out.println(" ");
 		if ((number == MAX_TRY) && !(numberGuess == randomNumber)) {
-			System.out.println(" ");
-			System.out.println("You lose!");
-			System.out.println(" ");
 			if (numberGuess < randomNumber) {
+				System.out.println(" ");
 				pickHighNumber();
 			} else if (numberGuess > randomNumber) {
+				System.out.println(" ");
 				pickLowNumber();
 			}
+			
+			System.out.println("You lose!");
+			System.out.println(" ");
 			//System.out.println(" ");
 			System.out.println("The number to guess was: " + randomNumber);
 			System.exit(0);
@@ -59,7 +62,7 @@ public class GuessingGameApps {
 				System.out.println(" ");
 				System.out.println("You win!");
 				System.out.println(" ");
-				System.out.println("The number to guess was: " + randomNumber);
+				//System.out.println("The number to guess was: " + randomNumber);
 				System.out.println(" ");
 				System.exit(0);
 			} else if (numberGuess < randomNumber) {
